@@ -1,5 +1,4 @@
-/*Given a sorted array arr[] (following 0-based indexing) and a number target, find the lower bound of the target in this given array. The lower bound of a number is defined as the smallest index in the sorted array where the element is greater than or equal to the given number.
-
+/*Given a sorted array arr[] (following 0-based indexing) and a number target, find the lower bound of the target in this given array.
 Note: If all the elements in the given array are smaller than the target, the lower bound will be the length of the array. 
 
 Examples :
@@ -14,6 +13,7 @@ Input: arr[] = [2, 3, 7, 10, 11, 11, 25], target = 100
 Output: 7
 Explanation: As no element in arr[] is greater than 100, return the length of array.
 */
+// *****  The lower bound of a number is defined as the smallest index in the sorted array where the element is greater than or equal to the given number.
 
 class Solution {
   public:

@@ -29,7 +29,7 @@ public:
         while(!st.empty()&&st.top().first<=price){
             st.pop();
         }
-        if(st.empty()){//There is no previous greater element.so we consider the current day itself so +1
+        if(st.empty()){//There is no previous greater  element.so we consider the current day itself so +1
             ans=ind+1;
         }
         else{

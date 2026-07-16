@@ -17,3 +17,34 @@ Example 2:
 Input: nums = [44,22,33,11,1], threshold = 5
 Output: 44
  */
+
+ class Solution {
+public:
+    int sumof(vector<int>&vec,int mid){
+        int sum=0;
+        for(int i=0;i<vec.size();i++){
+            sum+=ceil(double(vec[i])/double(mid));
+        }
+        return sum;
+    }
+    int smallestDivisor(vector<int>& nums, int threshold) {
+        int low =1;
+        int maxi=1;
+        for(int i=0;i<nums.size();i++){
+            maxi=max(maxi,nums[i]);
+        }
+        int high=maxi;
+        int ans;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(sumof(nums,mid)<=threshold){
+                ans=mid;
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return ans;
+    }
+};

@@ -37,3 +37,52 @@ Explanation:
 4th day: 1, 1
  */
 
+class Solution {
+public:
+int maxi(vector<int>&vec){
+    int maxi=vec[0];
+    for(int i=0;i<vec.size();i++){
+        maxi=max(maxi,vec[i]);
+    }
+    return maxi;
+}
+int summy(vector<int>&vec){
+    int sum=0;
+    for(int i=0;i<vec.size();i++){
+        sum+=vec[i];
+    }
+    return sum;
+}
+int cap(vector<int>&vec,int capacity){
+    int days=1;
+    int limit=0;
+    for(int i=0;i<vec.size();i++){
+        if(limit+vec[i]>capacity){
+            days++;
+            limit=vec[i];//setting the next load for next day not making it zero again 
+        }
+        else{
+            limit+=vec[i];
+        }
+    }
+    return days;
+}
+
+    int shipWithinDays(vector<int>& we, int days) {
+       int low=maxi(we) ;
+       int high=summy(we);
+       int ans=0;
+       while(low<=high){
+        int mid=low+(high-low)/2;
+        int reqdays=cap(we,mid);
+        if(reqdays<=days){
+        ans=mid;
+        high=mid-1;
+       }
+       else if(reqdays>days){
+        low=mid+1;
+       }
+ 
+    }
+    return ans;}
+};

@@ -24,3 +24,16 @@ Input: arr = [10,20,30], fn = function constant() { return 42; }
 Output: [42,42,42]
 Explanation: The function always returns 42.
  */
+
+
+/**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+var map = function(arr, fn) {
+    for(let i=0;i<arr.length;i++){
+        arr[i]=fn(arr[i],i);// it will take the number of arguments it need and ignores the remaining if left.{the minimum is 2}
+    }
+    return arr;
+};
